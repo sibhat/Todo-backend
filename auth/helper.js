@@ -1,5 +1,5 @@
 const bcrypt = require('bcryptjs');
-const db = require('../data/knex');
+const db = require('../config/knex');
 const jwt = require('jsonwebtoken');
 
 module.exports = {

@@ -1,12 +1,12 @@
 let express = require("express");
 let server = express.Router();
+let todos = require("./todo");
+const users = require("./user");
 
-const queries = require("../data/queries");
+server.use("/todos", todos);
+// server.use("/users", users);
 
-server.use("/users", queries.getAllUsers);
-server.get("/", (req,res)=>{
-    res.json({name: "name"})
-});
+
 
 
 module.exports = server;

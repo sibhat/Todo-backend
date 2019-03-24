@@ -1,4 +1,4 @@
-const knex = require("./knex");
+const knex = require("../config/knex");
 module.exports = {
     getAllUsers: (req, res, next) => {
         const qurey = knex('users');
@@ -15,7 +15,6 @@ module.exports = {
         }
     },
     findOrCreateUser: (data, cb) => {
-        console.log("data", data.name.givenName);
         let user = {
             first_name: data.name.givenName,
             last_name: data.name.familyName,

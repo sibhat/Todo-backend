@@ -2,7 +2,7 @@ const  passport = require("passport");
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const express = require("express");
 const router = express.Router();
-const db = require("../data/queries");
+const db = require("../api/userQueries");
 const helper = require("./helper");
 
 passport.use(new GoogleStrategy({
@@ -11,9 +11,7 @@ passport.use(new GoogleStrategy({
         callbackURL: "/auth/google/callback"
     },
     function(accessToken, refreshToken, profile, cb) {
-        console.log("accessToken ",accessToken);
-        // console.log("refreshToken ",refreshToken);
-        // console.log("profile ",profile);
+        console.log("google accessToken ",accessToken);
         db.findOrCreateUser(profile, function (err, user) {
             if(err) {cb(null, false)}
             else{cb(null, user) }
