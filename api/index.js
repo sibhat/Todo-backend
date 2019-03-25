@@ -4,7 +4,7 @@ let todos = require("./todo");
 const users = require("./user");
 
 server.use("/todos", todos);
-// server.use("/users", users);
+server.use("/users", users);
 
 
 

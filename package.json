@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "nodemon app.js",
+    "test": "mocha api/test/todoTest.js"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -17,6 +18,11 @@
     "nodemon": "^1.18.10",
     "passport": "^0.4.0",
     "passport-google-oauth": "^1.0.0",
-    "pg": "^7.9.0"
+    "pg": "^7.9.0",
+    "swagger-jsdoc": "^3.2.8",
+    "swagger-ui-express": "^4.0.2"
+  },
+  "devDependencies": {
+    "supertest": "^4.0.2"
   }
 }
