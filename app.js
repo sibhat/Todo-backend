@@ -7,7 +7,7 @@ let api = require("./api");
 // const passport = require("passport");
 const Auth = require("./auth/index");
 const app = express();
-
+const swaggerDocs = require('./config/swaggerDocs');
 
 // view engine setup
 app.use(logger('dev'));
@@ -20,7 +20,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use("/api", api);
 app.use("/auth", Auth);
-
+swaggerDocs(app);
 // // catch 404 and forward to error handler
 // app.use(function(req, res, next) {
 //   next();
@@ -39,4 +39,4 @@ let PORT = process.env.PORT || '8000';
 app.listen(PORT,() =>{
   console.log("Server is listening on port "+ PORT);
 });
-module.exports = app;
+// module.exports = app;

@@ -1,5 +1,13 @@
 const knex = require("../config/knex");
 module.exports = {
+    me: (req, res, next) =>{
+        knex('users').where("id", req.user_id)
+            .then(result =>{
+                res.status(200).json(result);
+            }).catch(() =>
+                next({message:"Database failed to fetch user, Please try again", status: 401})
+            );
+    },
     getAllUsers: (req, res, next) => {
         const qurey = knex('users');
         if (req.params.id) {
@@ -38,5 +46,5 @@ module.exports = {
                     cb(null, result);
                 }
             })
-    },
+    }
 };

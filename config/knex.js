@@ -5,6 +5,5 @@ const environmentConfig = config[environment];
 
 const connection = knex(environmentConfig);
 
-
 module.exports = connection;
 
