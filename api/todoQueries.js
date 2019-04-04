@@ -12,7 +12,7 @@ module.exports = {
                 } else {
                     next({message: "User is not authorized", status: 401});
                 }
-            }).catch(error => {
+            }).catch(() => {
             next({message: "Item was not found on DB", status: 401})
         })
     },
@@ -64,7 +64,7 @@ module.exports = {
     updateToDo: (req, res, next) => {
         const newTodo = req.body;
         const id = req.params.id;
-        db('todos').where("id", id).first().update(newTodo)
+        db('todos').where("id", id).first().update(newTodo).returning(["id", "title", "description", "date"])
             .then(result => {
                 res.status(200).json(result);
             }).catch(error => next({message: error.message, status: 401}))
@@ -74,7 +74,7 @@ module.exports = {
         const newTodo = req.body;
         const id = req.params.id;
 
-        db('todos').where("id", id).first().update(newTodo)
+        db('todos').where("id", id).first().update(newTodo).returning(["id", "title", "description", "date"])
             .then(result => {
                 res.status(200).json(result);
             }).catch(error => next({message: error.message, status: 401}))
@@ -83,8 +83,8 @@ module.exports = {
     deleteToDo: (req, res, next) => {
         const id = req.params.id;
         db('todos').where("id", id).first().del()
-            .then(result => {
-                res.status(200).json(result);
+            .then(() => {
+                res.status(200).json({id: id});
             }).catch(error => next({message: error.message, status: 401}))
     }
 };

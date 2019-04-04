@@ -1,7 +1,7 @@
 const knex = require("../config/knex");
 module.exports = {
     me: (req, res, next) =>{
-        knex('users').where("id", req.user_id)
+        knex('users').where("id", req.user_id).first()
             .then(result =>{
                 res.status(200).json(result);
             }).catch(() =>

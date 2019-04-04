@@ -11,6 +11,10 @@ module.exports = {
       password: 'sibtodo123',
       database: 'sibtodo',
     },
+    pool: {
+      min: 1,
+      max: 34,
+    },
     useNullAsDefault: true,
     migrations: {
       directory: './database/migrations_aws'
@@ -27,7 +31,7 @@ module.exports = {
     },
     pool: {
       min: 1,
-      max: 10,
+      max: 34,
     },
     useNullAsDefault: true,
     migrations: {
