@@ -2,6 +2,9 @@
   "name": "backend",
   "version": "0.0.0",
   "private": true,
+  "engines": {
+    "node": "10.x"
+  },
   "scripts": {
     "start": "nodemon app.js",
     "test": "mocha api/test/todoTest.js"
