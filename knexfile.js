@@ -1,15 +1,15 @@
 // Update with your config settings.
-const AWS_DBendpoint = 'sibtodo.csaqlecfbhrm.us-west-2.rds.amazonaws.com';
+// const AWS_DBendpoint = 'sibtodo.csaqlecfbhrm.us-west-2.rds.amazonaws.com';
 
 module.exports = {
   development: {
     client: 'pg',
     connection: {
-      host: AWS_DBendpoint,
+      host: process.env.AWS_DBendpoint,
       port: '5432',
-      user: 'sibtodo',   //master username as listed in the AWS Console,
-      password: 'sibtodo123',
-      database: 'sibtodo',
+      user: process.env.AWS_DBendpoint_User,   //master username as listed in the AWS Console,
+      password:  process.env.AWS_DBendpoint_Password,
+      database: process.env.AWS_DBendpoint_DB,
     },
     pool: {
       min: 1,
@@ -23,11 +23,11 @@ module.exports = {
   production: {
     client: 'pg',
     connection: {
-      host: AWS_DBendpoint,
+      host: process.env.AWS_DBendpoint,
       port: '5432',
-      user: 'sibhat',   //master username as listed in the AWS Console,
-      password: 'sibtodo123',
-      database: 'sibtodo',
+      user: process.env.AWS_DBendpoint_User,   //master username as listed in the AWS Console,
+      password:  process.env.AWS_DBendpoint_Password,
+      database: process.env.AWS_DBendpoint_DB,
     },
     pool: {
       min: 1,
@@ -41,12 +41,11 @@ module.exports = {
   testing: {
     client: 'pg',
     connection: {
-
-      host: AWS_DBendpoint,
+      host: process.env.AWS_DBendpoint,
       port: '5432',
-      user: 'sibhat',   //master username as listed in the AWS Console,
-      password: 'sibtodo123',
-      database: 'sibtodo',
+      user: process.env.AWS_DBendpoint_User,   //master username as listed in the AWS Console,
+      password:  process.env.AWS_DBendpoint_Password,
+      database: process.env.AWS_DBendpoint_DB,
     },
     pool: {
       min: 1,
