@@ -1,5 +1,4 @@
 // Update with your config settings.
-// const AWS_DBendpoint = 'sibtodo.csaqlecfbhrm.us-west-2.rds.amazonaws.com';
 
 module.exports = {
   development: {
