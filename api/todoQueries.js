@@ -30,7 +30,7 @@ module.exports = {
                         } else {
                             next({message: "wrong user id", status: 401})
                         }
-                    })
+                    }).catch(() =>  next({message: "user could not be found in DB.", status: 501}))
             });
         } catch (err) {
             next({message: "No token provided.", status: 403})
